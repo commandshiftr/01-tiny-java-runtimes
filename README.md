@@ -36,6 +36,9 @@ Link together the modules required from your application's dependencies listed a
 ```java
 jlink \
     --compress=2 \
+    --no-man-pages \
+    --no-header-files \
+    --strip-debug \
     --module-path dist/linux_x86-64/jdk-11.0.1/jmods/ \
     --add-modules $(jdeps --print-module-deps bin/Main.class) \
     --output dist/myJRE
