@@ -20,14 +20,14 @@ We need to compile the application, see what dependencies or modules it requires
 ## Compile
 Turn the source code into `.class` files or *bytecode*.
 ```java
-javac -d bin/ src/Main.java
+javac -d . src/Main.java
 ```
 
 ## Analyze
 See what dependencies you *actually* need to run your app.
 
 ```java
-jdeps --print-module-deps bin/Main.class
+jdeps --print-module-deps Main.class
 ```
 
 ## Build Custom JRE:
@@ -36,19 +36,21 @@ Link together the modules required from your application's dependencies listed a
 ```java
 jlink \
     --compress=2 \
+    --verbose \
     --no-man-pages \
     --no-header-files \
     --strip-debug \
-    --module-path dist/linux_x86-64/jdk-11.0.1/jmods/ \
-    --add-modules $(jdeps --print-module-deps bin/Main.class) \
+    --module-path $JAVA_HOME/jmods \
+    --add-modules $(jdeps --print-module-deps Main.class) \
     --output dist/myJRE
 ```
 
 From here, you have a tailored JRE to run your application with:
 
 ```java
-dist/myJRE/bin/java bin/Main.class
+dist/myJRE/bin/java Main
 ```
+
 
 # Create Docker Image
 In this repository I've also included a `Dockerfile` to quickly build our image. The Dockerfile pulls from [Alpine Linux](https://alpinelinux.org/) which is a ridicously small Linux distribution.
