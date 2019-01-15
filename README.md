@@ -1,5 +1,5 @@
 # Tiny Java Docker Images
-> Guide for creating a custom micro-sized JRE in order to containerise Java applications with Alpine Linux.
+> 🐋 ☕ Guide for creating a custom micro-sized JRE in order to containerise Java applications with Alpine Linux.
 
 Inspired by: https://mjg123.github.io/2018/11/05/alpine-jdk11-images.html
 
