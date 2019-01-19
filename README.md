@@ -1,15 +1,14 @@
-# Tiny Java Docker Images
-> 🐋 ☕ Guide for creating a custom micro-sized JRE in order to containerise Java applications with Alpine Linux.
+# Tiny Java Runtimes
+> ☕ Guide for creating a micro-sized JRE tailor built for your application.
 
 Inspired by: https://mjg123.github.io/2018/11/05/alpine-jdk11-images.html
 
 # Prereqresites
 
-- [Docker](https://www.docker.com/get-started)
-- [OpenJDK 11](https://openjdk.java.net/install/) - Open-source Java 11 implementation
-    - [JLink](https://openjdk.java.net/jeps/282) - 
-    - [JDeps]() - Java class depdenecy analyzer
-    - [javac]() - Java compiler
+- [Open JDK 11](https://openjdk.java.net/install/) - Open-source Java 11 implementation
+    - jlink - Java libray linker tool
+    - jdeps - Java class depdenecy analyzer
+    - javac - Java compiler
 
 
 # Getting Started
@@ -49,16 +48,4 @@ From here, you have a tailored JRE to run your application with:
 
 ```java
 dist/myJRE/bin/java Main
-```
-
-
-# Create Docker Image
-In this repository I've also included a `Dockerfile` to quickly build our image. The Dockerfile pulls from [Alpine Linux](https://alpinelinux.org/) which is a ridicously small Linux distribution.
-
-```docker
-docker build --tag tiny-jre .
-```
-
-```docker
-docker run tiny-jre
 ```
